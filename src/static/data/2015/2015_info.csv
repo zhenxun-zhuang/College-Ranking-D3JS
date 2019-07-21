@@ -1,0 +1,385 @@
+1,California Institute of Technology,United States of America
+2,Harvard University,United States of America
+3,University of Oxford,United Kingdom
+4,Stanford University,United States of America
+5,University of Cambridge,United Kingdom
+6,Massachusetts Institute of Technology,United States of America
+7,Princeton University,United States of America
+8,"University of California, Berkeley",United States of America
+9,Imperial College London,United Kingdom
+9,Yale University,United States of America
+11,University of Chicago,United States of America
+12,"University of California, Los Angeles",United States of America
+13,ETH Zurich – Swiss Federal Institute of Technology Zurich,Switzerland
+14,Columbia University,United States of America
+15,Johns Hopkins University,United States of America
+16,University of Pennsylvania,United States of America
+17,University of Michigan,United States of America
+18,Duke University,United States of America
+19,Cornell University,United States of America
+20,University of Toronto,Canada
+21,Northwestern University,United States of America
+22,University College London,United Kingdom
+23,University of Tokyo,Japan
+24,Carnegie Mellon University,United States of America
+25,National University of Singapore,Singapore
+26,University of Washington,United States of America
+27,Georgia Institute of Technology,United States of America
+28,University of Texas at Austin,United States of America
+29,LMU Munich,Germany
+29,University of Illinois at Urbana-Champaign,United States of America
+29,University of Wisconsin-Madison,United States of America
+32,University of British Columbia,Canada
+33,University of Melbourne,Australia
+34,École Polytechnique Fédérale de Lausanne,Switzerland
+36,University of Edinburgh,United Kingdom
+37,"University of California, Santa Barbara",United States of America
+38,New York University,United States of America
+39,McGill University,Canada
+40,King’s College London,United Kingdom
+41,"University of California, San Diego",United States of America
+42,Washington University in St Louis,United States of America
+43,University of Hong Kong,Hong Kong
+44,Karolinska Institute,Sweden
+45,Australian National University,Australia
+46,University of Minnesota,United States of America
+46,University of North Carolina at Chapel Hill,United States of America
+48,Peking University,China
+49,Tsinghua University,China
+50,Seoul National University,South Korea
+51,Hong Kong University of Science and Technology,Hong Kong
+52,Korea Advanced Institute of Science and Technology (KAIST),South Korea
+52,University of Manchester,United Kingdom
+54,Brown University,United States of America
+55,KU Leuven,Belgium
+55,"University of California, Davis",United States of America
+57,Boston University,United States of America
+58,Pennsylvania State University,United States of America
+59,Kyoto University,Japan
+60,University of Sydney,Australia
+61,Nanyang Technological University,Singapore
+61,École Polytechnique,France
+63,Scuola Normale Superiore di Pisa,Italy
+64,Leiden University,Netherlands
+65,The University of Queensland,Australia
+66,Pohang University of Science and Technology,South Korea
+67,University of Göttingen,Germany
+68,Ohio State University,United States of America
+69,Rice University,United States of America
+70,Heidelberg University,Germany
+71,Delft University of Technology,Netherlands
+72,Erasmus University Rotterdam,Netherlands
+73,Wageningen University and Research Center,Netherlands
+74,University of Bristol,United Kingdom
+75,University of Basel,Switzerland
+75,University of Southern California,United States of America
+77,University of Amsterdam,Netherlands
+78,École Normale Supérieure,France
+79,Utrecht University,Netherlands
+80,Humboldt University of Berlin,Germany
+81,Free University of Berlin,Germany
+82,Michigan State University,United States of America
+83,Durham University,United Kingdom
+83,Monash University,Australia
+85,Middle East Technical University,Turkey
+86,University of Arizona,United States of America
+86,University of Notre Dame,United States of America
+88,Tufts University,United States of America
+88,"University of California, Irvine",United States of America
+90,Ghent University,Belgium
+91,University of Massachusetts,United States of America
+91,University of Pittsburgh,United States of America
+93,Emory University,United States of America
+94,McMaster University,Canada
+94,University of Glasgow,United Kingdom
+96,Vanderbilt University,United States of America
+97,University of Colorado Boulder,United States of America
+98,Stockholm University,Sweden
+98,Technical University of Munich,Germany
+98,Uppsala University,Sweden
+101,Maastricht University,Netherlands
+102,Purdue University,United States of America
+103,Pierre and Marie Curie University,France
+103,University of Helsinki,Finland
+103,University of Warwick,United Kingdom
+103,University of Zurich,Switzerland
+107,Queen Mary University of London,United Kingdom
+107,University of Geneva,Switzerland
+109,"University of California, Santa Cruz",United States of America
+109,University of New South Wales,Australia
+111,University of St Andrews,United Kingdom
+111,University of Sussex,United Kingdom
+113,University of Montreal,Canada
+113,University of Tübingen,Germany
+116,Case Western Reserve University,United States of America
+117,University of Groningen,Netherlands
+118,"Royal Holloway, University of London",United Kingdom
+119,Lund University,Sweden
+120,Paris-Sud University,France
+121,Technical University of Denmark,Denmark
+121,University of Rochester,United States of America
+121,University of Sheffield,United Kingdom
+124,University of Alberta,Canada
+124,University of Cape Town,South Africa
+126,Boston College,United States of America
+126,KTH Royal Institute of Technology,Sweden
+126,University of Florida,United States of America
+129,Chinese University of Hong Kong,Hong Kong
+130,University of Virginia,United States of America
+131,Lancaster University,United Kingdom
+132,University of Bern,Switzerland
+132,"University of Maryland, College Park",United States of America
+132,University of Southampton,United Kingdom
+135,TU Dresden,Germany
+136,University of Lausanne,Switzerland
+136,VU University Amsterdam,Netherlands
+138,Trinity College Dublin,Republic of Ireland
+139,Boğaziçi University,Turkey
+140,Radboud University Nijmegen,Netherlands
+141,Colorado School of Mines,United States of America
+141,Texas A&M University,United States of America
+141,Tokyo Institute of Technology,Japan
+144,Eindhoven University of Technology,Netherlands
+144,"Rutgers, the State University of New Jersey",United States of America
+146,University of Leeds,United Kingdom
+147,Brandeis University,United States of America
+148,Sungkyunkwan University (SKKU),South Korea
+148,University of Birmingham,United Kingdom
+150,Indiana University,United States of America
+150,"University of California, Riverside",United States of America
+152,Dartmouth College,United States of America
+153,Aarhus University,Denmark
+154,University of Exeter,United Kingdom
+155,National Taiwan University,Taiwan
+156,RWTH Aachen University,Germany
+157,Osaka University,Japan
+157,University of Liverpool,United Kingdom
+157,University of Western Australia,Australia
+160,University of Copenhagen,Denmark
+160,École Normale Supérieure de Lyon,France
+162,University of Utah,United States of America
+163,University of Freiburg,Germany
+164,University of Adelaide,Australia
+165,Istanbul Technical University,Turkey
+165,Karlsruhe Institute of Technology,Germany
+165,Pompeu Fabra University,Spain
+165,Tohoku University,Japan
+169,University of Miami,United States of America
+170,University of Antwerp,Belgium
+171,University of Nottingham,United Kingdom
+171,Université Catholique de Louvain,Belgium
+173,Georgetown University,United States of America
+173,University of Victoria,Canada
+175,University of Auckland,New Zealand
+175,University of Iowa,United States of America
+177,Syracuse University,United States of America
+178,Joseph Fourier University,France
+178,University of Aberdeen,United Kingdom
+180,Paris Diderot University – Paris 7,France
+180,University of Delaware,United States of America
+182,Arizona State University,United States of America
+182,Sabancı University,Turkey
+182,University of Vienna,Austria
+185,Northeastern University,United States of America
+186,University of Oslo,Norway
+186,Yeshiva University,United States of America
+188,Stony Brook University,United States of America
+188,Tel Aviv University,Israel
+188,University of Ottawa,Canada
+191,University at Buffalo,United States of America
+192,City University of Hong Kong,Hong Kong
+193,Fudan University,China
+193,Iowa State University,United States of America
+195,University of Bonn,Germany
+196,Lomonosov Moscow State University,Russian Federation
+196,"St George’s, University of London",United Kingdom
+198,University of East Anglia,United Kingdom
+199,University of Leicester,United Kingdom
+200,Florida Institute of Technology,United States of America
+200,George Washington University,United States of America
+201-225,Cardiff University,United Kingdom
+201-225,Goethe University Frankfurt,Germany
+201-225,Hebrew University of Jerusalem,Israel
+201-225,Hong Kong Polytechnic University,Hong Kong
+201-225,Korea University,South Korea
+201-225,Newcastle University,United Kingdom
+201-225,Technion Israel Institute of Technology,Israel
+201-225,Ulm University,Germany
+201-225,University of Barcelona,Spain
+201-225,University of Bergen,Norway
+201-225,University of Dundee,United Kingdom
+201-225,University of Illinois at Chicago,United States of America
+201-225,University of Innsbruck,Austria
+201-225,University of Reading,United Kingdom
+201-225,University of Science and Technology of China,China
+201-225,University of Strasbourg,France
+201-225,University of São Paulo,Brazil
+201-225,University of Texas at Dallas,United States of America
+201-225,University of Trieste,Italy
+201-225,University of Twente,Netherlands
+201-225,Université Libre de Bruxelles,Belgium
+201-225,Wake Forest University,United States of America
+201-225,William & Mary,United States of America
+201-225,Yonsei University,South Korea
+226-250,Autonomous University of Barcelona,Spain
+226-250,"Birkbeck, University of London",United Kingdom
+226-250,Brunel University London,United Kingdom
+226-250,Carleton University,Canada
+226-250,Dalhousie University,Canada
+226-250,Laval University,Canada
+226-250,Mines ParisTech,France
+226-250,Nagoya University,Japan
+226-250,Rensselaer Polytechnic Institute,United States of America
+226-250,Simon Fraser University,Canada
+226-250,Tokyo Metropolitan University,Japan
+226-250,University College Dublin,Republic of Ireland
+226-250,University of Calgary,Canada
+226-250,University of Gothenburg,Sweden
+226-250,University of Kiel,Germany
+226-250,University of Konstanz,Germany
+226-250,University of Milan-Bicocca,Italy
+226-250,University of Technology Sydney,Australia
+226-250,University of Western Ontario,Canada
+226-250,University of Würzburg,Germany
+226-250,Vienna University of Technology,Austria
+226-250,York University,Canada
+251-275,Aalto University,Finland
+251-275,Federico Santa María Technical University,Chile
+251-275,Medical University of Vienna,Austria
+251-275,Nanjing University,China
+251-275,National Tsing Hua University,Taiwan
+251-275,"National University of Ireland, Galway",Republic of Ireland
+251-275,Queen’s University,Canada
+251-275,Queen’s University Belfast,United Kingdom
+251-275,Swedish University of Agricultural Sciences,Sweden
+251-275,Technical University of Darmstadt,Germany
+251-275,University of Bremen,Germany
+251-275,University of Iceland,Iceland
+251-275,University of Münster,Germany
+251-275,University of Newcastle,Australia
+251-275,University of Otago,New Zealand
+251-275,University of Pavia,Italy
+251-275,University of Salento,Italy
+251-275,University of South Florida,United States of America
+251-275,"University of the Andes, Colombia",Colombia
+251-275,University of the Witwatersrand,South Africa
+251-275,University of Trento,Italy
+251-275,University of Turin,Italy
+251-275,University of Waterloo,Canada
+276-300,Chalmers University of Technology,Sweden
+276-300,Colorado State University,United States of America
+276-300,Indian Institute of Science,India
+276-300,Lappeenranta University of Technology,Finland
+276-300,Montpellier University,France
+276-300,National Chiao Tung University,Taiwan
+276-300,Norwegian University of Science and Technology,Norway
+276-300,Panjab University,India
+276-300,Plymouth University,United Kingdom
+276-300,Queensland University of Technology,Australia
+276-300,Shanghai Jiao Tong University,China
+276-300,Stellenbosch University,South Africa
+276-300,Tilburg University,Netherlands
+276-300,Tokyo Medical and Dental University (TMDU),Japan
+276-300,University College Cork,Republic of Ireland
+276-300,University of Bologna,Italy
+276-300,University of Cincinnati,United States of America
+276-300,University of Erlangen-Nuremberg,Germany
+276-300,University of Fribourg,Switzerland
+276-300,University of Georgia,United States of America
+276-300,University of Macau,Macau
+276-300,University of Milan,Italy
+276-300,University of Nebraska-Lincoln,United States of America
+276-300,University of South Australia,Australia
+276-300,University of South Carolina,United States of America
+276-300,University of Wollongong,Australia
+276-300,Victoria University of Wellington,New Zealand
+276-300,Virginia Polytechnic Institute and State University,United States of America
+301-350,Autonomous University of Madrid,Spain
+301-350,Bangor University,United Kingdom
+301-350,Charles Darwin University,Australia
+301-350,Charles University in Prague,Czech Republic
+301-350,Creighton University,United States of America
+301-350,Deakin University,Australia
+301-350,Drexel University,United States of America
+301-350,Hong Kong Baptist University,Hong Kong
+301-350,Kansas State University,United States of America
+301-350,Koç University,Turkey
+301-350,Macquarie University,Australia
+301-350,Novosibirsk State University,Russian Federation
+301-350,Oregon State University,United States of America
+301-350,Polytechnic University of Milan,Italy
+301-350,Renmin University of China,China
+301-350,San Diego State University,United States of America
+301-350,Sapienza University of Rome,Italy
+301-350,Sharif University of Technology,Iran
+301-350,State University of Campinas,Brazil
+301-350,Sun Yat-sen University,China
+301-350,University of Bath,United Kingdom
+301-350,University of Canterbury,New Zealand
+301-350,University of Cologne,Germany
+301-350,University of Connecticut,United States of America
+301-350,University of Crete,Greece
+301-350,University of Duisburg-Essen,Germany
+301-350,University of Essex,United Kingdom
+301-350,University of Houston,United States of America
+301-350,University of Manitoba,Canada
+301-350,University of Marrakech Cadi Ayyad,Morocco
+301-350,University of Montana,United States of America
+301-350,University of Nebraska Medical Center,United States of America
+301-350,University of Padua,Italy
+301-350,University of Pisa,Italy
+301-350,University of Southern Denmark,Denmark
+301-350,University of Stirling,United Kingdom
+301-350,University of Stuttgart,Germany
+301-350,University of Tampere,Finland
+301-350,University of Tsukuba,Japan
+301-350,University of Valencia,Spain
+301-350,University of Warsaw,Poland
+301-350,Zhejiang University,China
+351-400,Aalborg University,Denmark
+351-400,Aberystwyth University,United Kingdom
+351-400,Bayreuth University,Germany
+351-400,Bielefeld University,Germany
+351-400,Claude Bernard University Lyon 1,France
+351-400,Curtin University,Australia
+351-400,Ewha Womans University,South Korea
+351-400,George Mason University,United States of America
+351-400,Hanyang University,South Korea
+351-400,Hokkaido University,Japan
+351-400,Indian Institute of Technology Bombay,India
+351-400,Indian Institute of Technology Roorkee,India
+351-400,Isfahan University of Technology,Iran
+351-400,King Mongkut’s University of Technology Thonburi,Thailand
+351-400,Kyushu University,Japan
+351-400,Lehigh University,United States of America
+351-400,Murdoch University,Australia
+351-400,National Cheng Kung University,Taiwan
+351-400,National Sun Yat-Sen University,Taiwan
+351-400,National Taiwan University of Science and Technology (Taiwan Tech),Taiwan
+351-400,Royal College of Surgeons in Ireland,Republic of Ireland
+351-400,Ruhr University Bochum,Germany
+351-400,Swinburne University of Technology,Australia
+351-400,UiT The Arctic University of Norway,Norway
+351-400,Umeå University,Sweden
+351-400,University of Bari Aldo Moro,Italy
+351-400,University of Eastern Finland,Finland
+351-400,University of Ferrara,Italy
+351-400,University of Florence,Italy
+351-400,University of Graz,Austria
+351-400,University of Hertfordshire,United Kingdom
+351-400,University of Lisbon,Portugal
+351-400,University of Liège,Belgium
+351-400,University of Minho,Portugal
+351-400,University of Missouri,United States of America
+351-400,University of Navarra,Spain
+351-400,University of Portsmouth,United Kingdom
+351-400,University of Rome III,Italy
+351-400,University of Seoul,South Korea
+351-400,University of Turku,Finland
+351-400,University of Waikato,New Zealand
+351-400,Vrije Universiteit Brussel,Belgium
+351-400,Waseda University,Japan
+351-400,Washington State University,United States of America
+351-400,Western Sydney University,Australia
+351-400,Wuhan University,China
+351-400,Wuhan University of Technology,China

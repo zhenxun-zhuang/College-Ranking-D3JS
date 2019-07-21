@@ -15,7 +15,9 @@ Then open a web browser, and use:
 
 
 ```
-localhost:8888
+http://localhost:8888
 ```
 
 Note that the 8888 is the port number which you should refer to the output of the last command.
+
+For more information, for example how the data was processed, what each section is doing, etc, please refer to the report.

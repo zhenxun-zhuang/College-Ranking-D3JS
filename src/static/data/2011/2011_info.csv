@@ -1,0 +1,189 @@
+1,Harvard University,United States of America
+2,California Institute of Technology,United States of America
+3,Massachusetts Institute of Technology,United States of America
+4,Stanford University,United States of America
+5,Princeton University,United States of America
+6,University of Cambridge,United Kingdom
+6,University of Oxford,United Kingdom
+8,"University of California, Berkeley",United States of America
+9,Imperial College London,United Kingdom
+10,Yale University,United States of America
+11,"University of California, Los Angeles",United States of America
+12,University of Chicago,United States of America
+13,Johns Hopkins University,United States of America
+14,Cornell University,United States of America
+15,ETH Zurich – Swiss Federal Institute of Technology Zurich,Switzerland
+15,University of Michigan,United States of America
+18,Columbia University,United States of America
+19,University of Pennsylvania,United States of America
+20,Carnegie Mellon University,United States of America
+21,University of Hong Kong,Hong Kong
+22,University College London,United Kingdom
+23,University of Washington,United States of America
+24,Duke University,United States of America
+25,Northwestern University,United States of America
+26,University of Tokyo,Japan
+27,Georgia Institute of Technology,United States of America
+28,Pohang University of Science and Technology,South Korea
+29,"University of California, Santa Barbara",United States of America
+30,University of British Columbia,Canada
+30,University of North Carolina at Chapel Hill,United States of America
+32,"University of California, San Diego",United States of America
+33,University of Illinois at Urbana-Champaign,United States of America
+34,National University of Singapore,Singapore
+35,McGill University,Canada
+36,University of Melbourne,Australia
+37,Peking University,China
+38,Washington University in St Louis,United States of America
+39,École Polytechnique,France
+40,University of Edinburgh,United Kingdom
+41,Hong Kong University of Science and Technology,Hong Kong
+42,École Normale Supérieure,France
+43,Australian National University,Australia
+43,Karolinska Institute,Sweden
+43,University of Göttingen,Germany
+47,Rice University,United States of America
+48,École Polytechnique Fédérale de Lausanne,Switzerland
+49,"University of California, Irvine",United States of America
+49,University of Science and Technology of China,China
+51,Vanderbilt University,United States of America
+52,University of Minnesota,United States of America
+53,Tufts University,United States of America
+54,"University of California, Davis",United States of America
+55,Brown University,United States of America
+56,University of Massachusetts,United States of America
+57,Kyoto University,Japan
+58,Tsinghua University,China
+59,Boston University,United States of America
+60,New York University,United States of America
+61,Emory University,United States of America
+61,LMU Munich,Germany
+63,University of Notre Dame,United States of America
+64,University of Pittsburgh,United States of America
+65,Case Western Reserve University,United States of America
+66,Ohio State University,United States of America
+67,University of Colorado Boulder,United States of America
+68,University of Bristol,United Kingdom
+68,"University of California, Santa Cruz",United States of America
+68,Yeshiva University,United States of America
+71,University of Sydney,Australia
+72,University of Virginia,United States of America
+73,University of Adelaide,Australia
+73,University of Southern California,United States of America
+75,William & Mary,United States of America
+76,Trinity College Dublin,Republic of Ireland
+77,King’s College London,United Kingdom
+78,Stony Brook University,United States of America
+79,Korea Advanced Institute of Science and Technology (KAIST),South Korea
+79,University of Sussex,United Kingdom
+81,The University of Queensland,Australia
+83,Heidelberg University,Germany
+83,University of Utah,United States of America
+85,Durham University,United Kingdom
+87,University of Manchester,United Kingdom
+88,"Royal Holloway, University of London",United Kingdom
+89,Lund University,Sweden
+90,University of Southampton,United Kingdom
+90,University of Zurich,Switzerland
+90,Wake Forest University,United States of America
+94,University College Dublin,Republic of Ireland
+95,George Washington University,United States of America
+95,University of Arizona,United States of America
+95,University of Basel,Switzerland
+98,"University of Maryland, College Park",United States of America
+99,Dartmouth College,United States of America
+100,École Normale Supérieure de Lyon,France
+101,Technical University of Munich,Germany
+102,University of Helsinki,Finland
+103,University of St Andrews,United Kingdom
+104,Rensselaer Polytechnic Institute,United States of America
+105,"Rutgers, the State University of New Jersey",United States of America
+106,Purdue University,United States of America
+107,National Tsing Hua University,Taiwan
+107,University of Cape Town,South Africa
+109,Pennsylvania State University,United States of America
+109,Seoul National University,South Korea
+111,Hong Kong Baptist University,Hong Kong
+112,Tokyo Institute of Technology,Japan
+114,Eindhoven University of Technology,Netherlands
+115,National Taiwan University,Taiwan
+117,"University of California, Riverside",United States of America
+118,University of Geneva,Switzerland
+119,KU Leuven,Belgium
+120,Nanjing University,China
+120,Queen Mary University of London,United Kingdom
+122,Michigan State University,United States of America
+122,Technical University of Denmark,Denmark
+124,Ghent University,Belgium
+124,Lancaster University,United Kingdom
+124,Leiden University,Netherlands
+127,University of Alberta,Canada
+128,University of Glasgow,United Kingdom
+129,Stockholm University,Sweden
+130,Osaka University,Japan
+130,University of Victoria,Canada
+132,Tohoku University,Japan
+132,University of Freiburg,Germany
+132,University of Iowa,United States of America
+135,University of Bergen,Norway
+136,University of Lausanne,Switzerland
+137,University of Sheffield,United Kingdom
+139,VU University Amsterdam,Netherlands
+140,Pierre and Marie Curie University,France
+140,University of Dundee,United Kingdom
+142,University of Barcelona,Spain
+143,Utrecht University,Netherlands
+144,Wageningen University and Research Center,Netherlands
+145,University of Auckland,New Zealand
+145,University of Birmingham,United Kingdom
+147,Alexandria University,Egypt
+147,Uppsala University,Sweden
+149,Hong Kong Polytechnic University,Hong Kong
+149,University of Aberdeen,United Kingdom
+151,Delft University of Technology,Netherlands
+152,"Birkbeck, University of London",United Kingdom
+152,Newcastle University,United Kingdom
+152,University of New South Wales,Australia
+155,Pompeu Fabra University,Spain
+156,Indiana University,United States of America
+156,Iowa State University,United States of America
+159,Erasmus University Rotterdam,Netherlands
+159,University of Delaware,United States of America
+161,Arizona State University,United States of America
+161,Boston College,United States of America
+163,National Sun Yat-Sen University,Taiwan
+164,Georgetown University,United States of America
+165,University of Amsterdam,Netherlands
+165,University of Liverpool,United Kingdom
+167,Aarhus University,Denmark
+168,University of Leeds,United Kingdom
+168,University of Würzburg,Germany
+170,University of Groningen,Netherlands
+171,Sun Yat-sen University,China
+172,Goethe University Frankfurt,Germany
+174,Nanyang Technological University,Singapore
+174,University of East Anglia,United Kingdom
+174,University of Nottingham,United Kingdom
+177,University of Copenhagen,Denmark
+178,Humboldt University of Berlin,Germany
+178,Monash University,Australia
+178,University of Bonn,Germany
+181,National Chiao Tung University,Taiwan
+182,RWTH Aachen University,Germany
+183,Middle East Technical University,Turkey
+184,University of Exeter,United Kingdom
+185,University of Twente,Netherlands
+186,University of Konstanz,Germany
+187,Karlsruhe Institute of Technology,Germany
+187,University of Innsbruck,Austria
+189,University of Tübingen,Germany
+190,Drexel University,United States of America
+190,University of Cincinnati,United States of America
+190,Yonsei University,South Korea
+193,Dalhousie University,Canada
+193,KTH Royal Institute of Technology,Sweden
+195,University of Vienna,Austria
+196,Kent State University,United States of America
+197,University of Illinois at Chicago,United States of America
+197,Zhejiang University,China
+199,Simon Fraser University,Canada

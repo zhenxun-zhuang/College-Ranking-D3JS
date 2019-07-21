@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset = "utf-8"/>
+	<title>CSE 564 Project</title>
+	<script type="text/javascript" src=".\static\d3\d3.js"></script>
+	<link href=".\static\css\style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+	<table align="center">
+		<tr>
+			<td>	
+				<form method="post" action="{{ url_for('index') }}">
+					<button id="toIndex" class="func" style="background-color: LightBlue;">Homepage</button>
+				</form>				
+				<form method="post" action="{{ url_for('annual') }}">
+					<button id="toAnnual" class="func">Annual</button>
+				</form>
+			</td>
+			<td>
+				<h1>&nbsp;&nbsp;&nbsp; What the Times Higher Education World University Ranking tells you &nbsp;&nbsp;&nbsp;</h1>
+			</td>
+			<td>
+				<form method="post" action="{{ url_for('changes') }}">
+					<button id="toChanges" class="func">Changes</button>
+				</form>
+				
+				<form method="post" action="{{ url_for('countries') }}">
+					<button id="toCountries" class="func">Countries</button>
+				</form>
+			</td>
+		</tr>
+	</table>
+	
+	<table align="center">
+		<tr>
+			<td><h2 class="title">Ever wondered at how the ranking works? Or interested at a specific university?</h2></td>
+		</tr>
+		<tr>
+			<td><h2 class="title">Then wait no more, let's get started!</h2></td>
+		</tr>
+	</table>	
+
+	<img src='.\static\data\logo.jpg'/>
+	
+</body>
+
+</html>

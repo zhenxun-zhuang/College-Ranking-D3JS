@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="cache-control" content="no-cache, must-revalidate, post-check=0, pre-check=0">
+	<meta http-equiv="expires" content="Sat, 31 Oct 2014 00:00:00 GMT">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta charset = "utf-8"/>
+	<title>CSE 564 Project</title>
+	<script type="text/javascript" src=".\static\d3\d3.js"></script>
+	<link href=".\static\css\style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+	<table align="center">
+		<tr>
+			<td>	
+				<form method="post" action="{{ url_for('index') }}">
+					<button id="toIndex" class="func">Homepage</button>
+				</form>				
+				<form method="post" action="{{ url_for('annual') }}">
+					<button id="toAnnual" class="func">Annual</button>
+				</form>
+			</td>
+			<td>
+				<h1>&nbsp;&nbsp;&nbsp; What the Times Higher Education World University Ranking tells you &nbsp;&nbsp;&nbsp;</h1>
+			</td>
+			<td>
+				<form method="post" action="{{ url_for('changes') }}">
+					<button id="toChanges" class="func">Changes</button>
+				</form>
+				
+				<form method="post" action="{{ url_for('countries') }}">
+					<button id="toCountries" class="func" style="background-color: LightBlue;">Countries</button>
+				</form>
+			</td>
+		</tr>
+	</table>
+	<table align="center">
+		<tr>
+			<td><h2>Comparison of the number of top universities in each country</h2></td>
+		</tr>
+		<tr>
+			<td>
+				<label><input type="radio" name="method" value="1" id="c2011" style="cursor:pointer"> 2011</label>
+				<label><input type="radio" name="method" value="2" id="c2012" style="cursor:pointer"> 2012</label>
+				<label><input type="radio" name="method" value="3" id="c2013" style="cursor:pointer"> 2013</label>
+				<label><input type="radio" name="method" value="4" id="c2014" style="cursor:pointer"> 2014</label>
+				<label><input type="radio" name="method" value="5" id="c2015" style="cursor:pointer"> 2015</label>
+				<label><input type="radio" name="method" value="6" id="c2016" style="cursor:pointer"> 2016</label>
+				<label><input type="radio" name="method" value="7" id="summary" style="cursor:pointer" checked> Summary</label>
+			</td>
+		</tr>
+	</table>
+	
+	<div id="canvas">
+	</div>
+
+	<script>
+		//window size
+		var w = (window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth) - 50;
+		var h = (window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight) - 200;
+
+		var paddingLeft = 73, paddingRight = 20, paddingTop = 80, paddingBottom = 50;
+	
+		var tooltip = function(name, num){
+			var loc = d3.mouse(d3.select("svg").node());//get mouse location
+			
+			d3.select("#tooltip")
+				.style("left", loc[0] + "px")
+				.style("top", loc[1] + "px");
+			
+			d3.select("#country")
+				.text("Country: " + name);
+			
+			d3.select("#number")
+				.text("Number: " + num);
+				
+			d3.select("#tooltip")
+				.style("visibility", "visible");
+		}
+				
+		var tooltipHide = function(){
+			d3.select("#tooltip").style("visibility", "hidden");
+		}
+		
+		var cconv = function(num)
+		{
+			var c = 0;
+			if(num<=5){c = 0;}
+			else if(num<=10){c = 1;}
+			else if(num<=20){c = 3;} 
+			else if(num<=50){c = 19;} 
+			else if(num<=100){c = 9;} 
+			else {c = 8;} 
+			
+			return c;
+		}
+
+		//----add legend----
+		var add_legend = function(svg, w, cScale, delay){
+		
+			colors = [15,0,4,3,18,9,8];
+			svg.append("rect")				
+				.attr("x", w-105)
+				.attr("y", 5)			
+				.attr("width", 100)
+				.attr("height", 180)				
+				.style("fill", "lightgray")			
+				.style("opacity", 0.1);
+				
+			for(var i = 6; i>=0; i--)
+			{
+				svg.append("circle")
+					.attr("cx", w-85)
+					.attr("cy", (7-i)*25-5)					
+					.attr("r", i+3)
+					.attr("fill", cScale[colors[i]])
+					.style("opacity", 0)				
+					.style("opacity", 1);
+				
+				svg.append("text")
+					.attr("class", "legend")
+					.attr("x", w-65)
+					.attr("y", (7-i)*25+1)					
+					.text(function(){
+						switch(i){
+							case 6:{return ">=100";}
+							case 5:{return "50-99";}
+							case 4:{return "20-49";}
+							case 3:{return "10-19";}
+							case 2:{return "5-9";}
+							case 1:{return "1-4";}
+							case 0:{return "0";}
+						}
+					})
+					.style("opacity", 0)			
+					.style("opacity", 1);					
+			}
+		}		
+				
+		var changeToPie = function(data, year)
+		{
+			d3.select("#canvas").selectAll("*").remove();//cleaning	
+
+			ttip = d3.select("#canvas").append("div").attr("id","tooltip").attr("class","hidden");
+			ttip.append("p").attr("id","country");
+			ttip.append("p").attr("id","number");
+
+			var w_pie = h;
+			var svg = d3.select("#canvas")
+						.append("svg")
+						.attr("width", w_pie)
+						.attr("height", h);
+			
+			var padding = 80;
+			
+			var color = d3.schemeCategory20;
+			
+			var r = Math.round((((w_pie>h)?h:w_pie) - padding)/2);
+			var arc = d3.arc()//specify radius
+						.outerRadius(r)
+						.innerRadius(0);
+			
+			var pie = d3.pie()
+						.sort(null)
+						.value(function(d){return d[year];});
+			
+			var arcs = svg.selectAll("g.arc")
+						   .data(pie(data))
+						   .enter()
+						   .append("g")
+						   .attr("class", "arc")
+						   .attr("transform", "translate(" + w_pie/2 + "," + h/2 + ")");
+			
+			arcs.append("path")
+				.attr("minea",function(d, i){return "arc_"+data[i][0];})
+				.attr("class","arcs")
+				.transition()
+				.duration(2000)
+				.ease(d3.easeExp)				
+				.attr("d", arc)//other attributes like start/end angles are implicitly inferred				
+				.attr("fill", function(d, i){return color[cconv(data[i][year])];})
+				.style("stroke",color[15]);
+				
+			arcs.on("mouseover", function(d,i){
+						d3.selectAll(".maps").style("opacity",0.05);
+						d3.select('path[minea="map_'+data[i][0]+'"]').style("opacity",1);
+						tooltip(data[i][0],data[i][year]);})
+				.on("mouseout", function(){d3.selectAll(".maps").style("opacity",1);tooltipHide();});			
+								   
+			var pieValues = svg.append("g")
+								.attr("transform","translate(" + w_pie/2 + "," + h/2 + ")")
+								.selectAll(".pieValues")
+								.data(pie(data))
+								.enter()
+								.append("g")
+								.attr("class", "pieValues")
+								.attr("transform", function(d) { return "rotate(" + ((d.startAngle + d.endAngle)/2 * 180 / Math.PI - 90) + ") translate(" + (0.7*r) + ",0)"; })
+								.append("text")
+								.attr("dx", "-0.5em")
+								.attr("transform", function(d) { return (d.startAngle + d.endAngle)/2> Math.PI ? "rotate(180) translate(-100,0)" : null; })
+								.transition()
+								.delay(300)
+								.duration(500)
+								.ease(d3.easeLinear)
+								.text(function(d,i){if((d.endAngle - d.startAngle)>Math.PI*0.02) {return data[i][0];}})
+								.attr("class","arcs")
+								.attr("minea",function(d, i){return "val_"+data[i][0];});
+								
+								
+			var svg = d3.select("#canvas")
+						.append("svg")
+						.attr("width", 30)
+						.attr("height", h);
+
+			
+			var countries = {}
+			for (var j=0; j<data.length; j++)
+			{
+				countries[data[j][0]] = data[j][year];
+			}
+			
+			w_map = w - w_pie - 30;
+
+			var svg_map = d3.select("#canvas")
+							.append("svg")
+							.attr("width", w_map)
+							.attr("height", h);
+
+			//Load in GeoJSON data
+			d3.json("./static/data/geodtam.json", function(json) {
+				//Define map projection
+				var projection = d3.geoMercator()
+									   .translate([w_map/2, h/2])
+									   .fitExtent([[0, 0], [w_map, h]], json);
+
+				//Define path generator
+				var path = d3.geoPath()
+								 .projection(projection);	
+								 
+				//Bind data and create one path per GeoJSON feature
+				svg_map.selectAll("path")
+					   .data(json.features)
+					   .enter()
+					   .append("path")
+					   .attr("d", path)
+					   .attr("minea",function(d){return "map_"+d["properties"]["name"];})
+					   .attr("class","maps")
+					   .style("fill", function(d){
+							var key = d["properties"]["name"];
+							if(countries.hasOwnProperty(key)){return color[cconv(countries[key])];}
+							else{return color[15];}
+						})
+						.on("mouseover", function(d){
+							var key = d["properties"]["name"];
+							var num = 0;
+							d3.selectAll(".arcs").style("opacity",0.1);
+							if(countries.hasOwnProperty(key))
+							{
+								num = countries[key];
+								d3.select('path[minea="arc_'+key+'"]').style("opacity",1);
+								d3.select('text[minea="val_'+key+'"]').style("opacity",1);
+							}
+							tooltip(key,num);
+						})
+						.on("mouseout", function(){d3.selectAll(".arcs").style("opacity",1);tooltipHide();});
+			});
+			
+			add_legend(svg_map, w_map, color, 0);
+		}
+
+
+		var genTable = function(data)
+		{
+			var canvas = d3.select("#canvas");
+			
+			canvas.selectAll("*").remove();//cleaning
+			
+			canvas.append("div").style("height","50px");
+		
+			header = ['country','2011','2012','2013','2014','2015','2016','country','2011','2012','2013','2014','2015','2016'];
+		
+			var delay_tb1 = 50;
+			var tran_tb = 300;
+			
+			var data_merge = [];
+			var len = data.length;
+			var len2 = len/2;
+			for (var i=0; i<len2; i++)
+			{
+				var data_cur = [];
+				var data1 = data[i];
+				var data2 = data[i+len2];
+				var num = data2.length;
+				for (var j=0; j<num; j++)
+				{
+					data_cur.push(data1[j]);
+				}
+				for (var j=0; j<num; j++)
+				{
+					data_cur.push(data2[j]);
+				}
+				data_merge.push(data_cur);
+			}
+			
+			var table1 = canvas.append('table').attr("class", "load");
+			table1.style("opacity", 0)
+					.transition()
+					.delay(delay_tb1)
+					.duration(tran_tb)
+					.ease(d3.easeLinear)				
+					.style("opacity", 1);
+			
+			var thead1 = table1.append('thead').attr("class", "load");
+			thead1.style("opacity", 0)
+					.transition()
+					.delay(delay_tb1)
+					.duration(tran_tb)
+					.ease(d3.easeLinear)				
+					.style("opacity", 1);								
+			
+			var	tbody1 = table1.append('tbody').attr("class", "load");
+			tbody1.style("opacity", 0)
+					.transition()
+					.delay(delay_tb1)
+					.duration(tran_tb)
+					.ease(d3.easeLinear)				
+					.style("opacity", 1);
+					
+			delay_tb1 = 	delay_tb1 + 50;								
+			// append the header row
+			thead1.append('tr')
+					.selectAll('th')
+					.data(header)
+					.enter()
+					.append('th')
+					.attr("class","header load")
+					.text(function(d) { return d;})
+					.style("opacity", 0)
+					.transition()
+					.delay(delay_tb1)
+					.duration(tran_tb)
+					.ease(d3.easeLinear)				
+					.style("opacity", 1);						  
+
+			// create a row for each object in the data
+			var rows1 = tbody1.selectAll('tr')
+							  .data(data_merge)
+							  .enter()
+							  .append('tr')
+							  .attr("class","load");
+
+			// create a cell in each row for each column
+			var cells1 = rows1.selectAll('td')
+							.data(function(d) {return d;})
+							.enter()
+							.append('td')
+							.attr("class",function(d,i){return (i==0 || i==7)?"load vari":"load";})
+							.text(function(d) {return d;})
+							.style("opacity", 0)
+							.transition()
+							.delay(delay_tb1)
+							.duration(tran_tb)
+							.ease(d3.easeLinear)				
+							.style("opacity", 1);
+							
+			canvas.append("p")
+				  .attr("class","note")
+				  .text("Note: the ranking for 2011 only includes 200 universities, whereas in other years there are 400.");
+										
+		}
+		
+		var radio = function(data)
+		{
+			var year = +(d3.select('input[name="method"]:checked').property("value"));
+			if(year == 7)
+			{
+				genTable(data);
+			}
+			else
+			{
+				changeToPie(data, year);
+			}
+		}
+
+
+		d3.json("./static/data/countries.json", function(error, rawdata){
+			if (error) throw error;
+		
+			//preprocessing
+			var num = rawdata.length;
+			var data = [];
+			for(var i=0; i<num; i++)//transform strings to floats
+			{
+				var data_cur = [];
+				data_cur.push(rawdata[i].country);
+				data_cur.push(+rawdata[i].n2011);
+				data_cur.push(+rawdata[i].n2012);
+				data_cur.push(+rawdata[i].n2013);
+				data_cur.push(+rawdata[i].n2014);
+				data_cur.push(+rawdata[i].n2015);
+				data_cur.push(+rawdata[i].n2016);
+				data.push(data_cur);
+			}
+			
+			d3.select("#summary").property("checked", "true");
+			
+			genTable(data);
+			
+			d3.selectAll('input[name="method"]').on("click",function(){radio(data);});
+		});
+	</script>
+
+	
+</body>

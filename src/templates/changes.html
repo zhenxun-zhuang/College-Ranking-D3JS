@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="cache-control" content="no-cache, must-revalidate, post-check=0, pre-check=0">
+	<meta http-equiv="expires" content="Sat, 31 Oct 2014 00:00:00 GMT">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta charset = "utf-8"/>
+	<title>CSE 564 Project</title>
+	<script type="text/javascript" src=".\static\d3\d3.js"></script>
+	<link href=".\static\css\style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+	<table align="center">
+		<tr>
+			<td>	
+				<form method="post" action="{{ url_for('index') }}">
+					<button id="toIndex" class="func">Homepage</button>
+				</form>				
+				<form method="post" action="{{ url_for('annual') }}">
+					<button id="toAnnual" class="func">Annual</button>
+				</form>
+			</td>
+			<td>
+				<h1>&nbsp;&nbsp;&nbsp; What the Times Higher Education World University Ranking tells you &nbsp;&nbsp;&nbsp;</h1>
+			</td>
+			<td>
+				<form method="post" action="{{ url_for('changes') }}">
+					<button id="toChanges" class="func" style="background-color: LightBlue;">Changes</button>
+				</form>
+				
+				<form method="post" action="{{ url_for('countries') }}">
+					<button id="toCountries" class="func">Countries</button>
+				</form>
+			</td>
+		</tr>
+	</table>
+	<table align="center">
+		<tr>
+			<td><h2>Changes of top 400 universities over time</h2></td>
+		</tr>
+		<tr>
+			<td>
+				<select id='name'></select>
+			</td>
+		</tr>
+	</table>
+	
+	<div id="canvas">
+	</div>
+	
+	<script>
+		//window size
+		var w = (window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth) - 50;
+		var h = (window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight) - 200;
+
+		var paddingLeft = 73, paddingRight = 20, paddingTop = 20, paddingBottom = 30;
+
+
+		var conv = function(d)
+		{
+			if(d<=200){return d;}
+			if(d.localeCompare("201-250")==0){return 225;}
+			else if(d.localeCompare("251-300")==0){return 275;}
+			else if(d.localeCompare("301-350")==0){return 325;}
+			else if(d.localeCompare("351-400")==0){return 375;}
+			else if(d.localeCompare("201-225")==0){return 213;}
+			else if(d.localeCompare("226-250")==0){return 238;}
+			else if(d.localeCompare("251-275")==0){return 263;}
+			else if(d.localeCompare("276-300")==0){return 288;}
+			else if(d.localeCompare("-")==0){return 400;}
+			else{return +d;}
+		}
+		
+		var draw = function(data)
+		{
+			var uni = d3.select("#name").property("value");
+			var data_per = data[uni];
+			var data_uni = [];
+			var ranks = [];
+			for (var i=0; i<6; i++)
+			{
+				var data_row = [];
+				data_row.push(2011+i);
+				for (var j=0; j<10; j++)
+				{
+					data_row.push(data_per[i*10+j+2]);
+				}
+				data_uni.push(data_row);
+				ranks.push(data_row[1]);
+			}
+		
+			var canvas = d3.select("#canvas");		
+			canvas.selectAll("*").remove();//cleaning
+			canvas.append("div").style("height","30px");
+		
+			w_each = Math.floor(w/2.13);
+			h_each = Math.floor(h/1.2);
+						
+			var middle_interval = w*0.015;
+			//--------table-------
+			var left_canvas = d3.select("#canvas")
+								.append("div")
+								.attr("class","bordered")
+								.style("padding","10px")
+								.style("padding-left","30px")
+								.style("padding-right","30px")
+								.style("display","inline-block")
+								.style("width", w_each+"px")
+								.style("height", h_each+"px")
+								.style("justify-content","center");								
+			
+			
+			
+			left_canvas.append("h3").attr("class","title").text(data_per[0]+" --- "+data_per[1]);
+		
+			header = ["year","rank","teach","int.","rsch.","cita.","income","# stu.","SSR","ISP","FMR"];
+		
+			var delay_tb1 = 50;
+			var tran_tb = 500;
+			
+			var table1 = left_canvas.append('table').attr("class", "load uni");
+			
+			var thead1 = table1.append('thead').attr("class", "load uni");								
+			
+			var	tbody1 = table1.append('tbody').attr("class", "load uni");
+					
+			delay_tb1 = delay_tb1 + 50;								
+			// append the header row
+			thead1.append('tr')
+					.selectAll('th')
+					.data(header)
+					.enter()
+					.append('th')
+					.attr("class","header load uni")
+					.text(function(d) { return d;});						  
+
+			// create a row for each object in the data
+			var rows1 = tbody1.selectAll('tr')
+							  .data(data_uni)
+							  .enter()
+							  .append('tr')
+							  .attr("class","load uni");
+
+			// create a cell in each row for each column
+			var cells1 = rows1.selectAll('td')
+							.data(function(d) {return d;})
+							.enter()
+							.append('td')
+							.attr("class",function(d,i){return (i==0)?"load uni vari":((i==1)?"load uni ranks":"load uni");})
+							.text(function(d) {return d;})
+							.style("opacity", 0)
+							.transition()
+							.delay(function(d,i){return (i==0)?0:delay_tb1;})
+							.duration(function(d,i){return (i==0)?0:tran_tb;})
+							.ease(d3.easeLinear)				
+							.style("opacity", 1);
+							
+			var div_def = left_canvas.append("div")
+										.style("display","inline-block")
+										.style("width", w_each)
+										.style("justify-content","center")
+										.style("backgroundcolor","lightgray");
+					
+			definitions = ["Year: the year the ranking was published",
+							"Rank: world rank",
+							"Teach: teaching (the learning environment)",
+							"Int.: international outlook (staff, students and research)",
+							"Rsch.: research (volume, income and reputation)",
+							"Cita.: citations (research influence)",
+							"Income: industry income (knowledge transfer)",
+							"# stu: number of students",
+							"SSR: student-staff-ratio, the number of students divided by the number of staff",
+							"ISP: international-students-percentage, how many students are international",
+							"FMR: female-male-ratio, female student to Male student ratio"];
+			
+			div_def.append("ol")
+					.selectAll("li")
+					.data(definitions)
+					.enter()
+					.append("li")
+					.text(function(d) { return d;});							
+															
+								
+			//--------middle-------					
+			var middle_canvas = d3.select("#canvas")
+									.append("div")
+									.style("display","inline-block")
+									.style("width", middle_interval+"px")
+									.style("height", h_each+"px")
+									.style("justify-content","center");
+
+					
+						
+			//--------bar chart--------
+			var padLeftDelta = 20;
+			var padTopDelta = 40;				
+			var right_canvas = d3.select("#canvas")
+									.append("div")
+									.attr("class","bordered")
+									.style("padding","10px")
+									.style("display","inline-block")
+									.style("width", w_each+"px")
+									.style("height", h_each+"px");
+									
+										
+			var delay_time = 100;
+			var tran_time = 500;
+			
+			right_canvas.append("h3").attr("class","title").text("Change of world rankings over years");
+
+			w_svg = w_each;
+			h_svg = h_each-85;
+			var svg_bar = right_canvas.append("svg")
+										.attr("width" , w_each)
+										.attr("height", h_svg);
+			
+			var cScale_bar = d3.schemeCategory20;			
+			
+			var xAxis_bar = d3.axisBottom();
+			
+			svg_bar.append("g")
+					  .attr("id", "xAxisBar")
+					  .attr("class", "axis")
+					  .attr("transform", "translate(0, " + (h_svg - paddingBottom) + ")");		
+
+			svg_bar.append("text")
+					  .text("Year")
+					  .attr("class", "axisLabel")
+					  .attr("x", w_each/2)
+					  .attr("y", h_svg);					  
+			
+			
+			var yAxis_bar = d3.axisLeft();
+			
+			svg_bar.append("g")
+					  .attr("id", "yAxisBar")
+					  .attr("class", "axis")
+					  .attr("transform", "translate(" + paddingLeft + ", 0)");
+
+			svg_bar.append("text")
+					  .text("World Rank")
+					  .attr("class", "axisLabel")
+					  .attr("transform", "translate(" + 20 + "," + (h_svg/2) + ") rotate(-90)");
+					  
+
+			var xScale_bar = d3.scaleBand()
+									 .domain(d3.range(2011, 2017))
+									 .rangeRound([paddingLeft, w_each-paddingRight])
+									 .paddingInner(0.40);
+
+			var ymin_bar = 0;
+			var ymax_bar = 400;
+			var yScale_bar = d3.scaleLinear()//number scale
+								 .domain([ymin_bar, ymax_bar])
+								 .range([paddingTop, h_svg-paddingBottom]);
+
+			var hRects_bar = svg_bar.selectAll("rect")
+									   .data(ranks)
+									   .enter()
+									   .append("rect")									   
+									   .attr("x", function(d, i){return xScale_bar(i+2011);})
+									   .attr("width", xScale_bar.bandwidth())
+									   .attr("height", function(d){return h_svg - paddingBottom - yScale_bar(conv(d));})
+									   .style("fill", function(d, i){return d3.schemeCategory20[i];})
+									   .attr("y", function(d){return yScale_bar(conv(d));})
+										.style("opacity",0)
+										.transition()
+										.delay(delay_time)
+										.duration(tran_time)
+										.ease(d3.easeLinear)
+										.style("opacity",1);
+
+			var hTexts_bar = svg_bar.selectAll(".rectLabel")
+									   .data(ranks)
+									   .enter()
+									   .append("text")
+									   .attr("id", "rectLabel")
+									   .attr("class", "label")
+									   .attr("text-anchor", "middle")
+									   .attr("x", function(d, i){return (xScale_bar(i+2011) + xScale_bar.bandwidth()/2);})
+									   .text(function(d,i){if(i==0 && d=='-'){return ">200";}else if(i>0 && d=='-'){return ">400";} else{return d;}})
+									   .attr("y", function(d){return yScale_bar(conv(d)) - 10;})
+									   	.style("opacity",0)
+										.transition()
+										.delay(delay_time)
+										.duration(tran_time)
+										.ease(d3.easeLinear)
+										.style("opacity",1);	
+													   
+			xAxis_bar.scale(xScale_bar);
+			d3.select("#xAxisBar")			
+				.call(xAxis_bar);
+			yAxis_bar.scale(yScale_bar);
+			d3.select("#yAxisBar")			
+				.call(yAxis_bar);			
+		
+		}
+		
+		d3.json("./static/data/changes.json", function(error, rawdata){
+			if (error) throw error;
+		
+			//preprocessing
+			var num = rawdata.length;
+			var data = [];
+			var names = [];
+			for(var i=0; i<num; i++)//transform strings to floats
+			{
+				names.push(rawdata[i].university_name);
+				var data_cur = [];
+				data_cur.push(rawdata[i].university_name);
+				data_cur.push(rawdata[i].country);
+				for (var j=2011; j<2017; j++)
+				{
+					data_cur.push(rawdata[i]['world_rank'+j]);
+					data_cur.push(rawdata[i]['teaching'+j]);
+					data_cur.push(rawdata[i]['international'+j]);
+					data_cur.push(rawdata[i]['research'+j]);
+					data_cur.push(rawdata[i]['citations'+j]);
+					data_cur.push(rawdata[i]['income'+j]);
+					data_cur.push(rawdata[i]['num_students'+j]);
+					data_cur.push(rawdata[i]['student_staff_ratio'+j]);
+					data_cur.push(rawdata[i]['international_students'+j]);
+					data_cur.push(rawdata[i]['female_male_ratio'+j]);
+				}
+				data.push(data_cur);
+			}
+			
+			var options = d3.select("#name")
+							.selectAll('option')
+							.data(names)
+							.enter()
+							.append('option')
+							.property("value",function(d,i){return i;})
+							.text(function(d){return d;});
+			
+			draw(data);
+			
+			d3.select('#name').on("change",function(){draw(data);});
+		});
+	</script>
+	
+</body>
